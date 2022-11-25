@@ -3,17 +3,22 @@ compare();
 async function compare() {
   const Jimp = require("jimp");
 
-  const edinburgh_original = await Jimp.read("edinburgh_original.jpg");
-  const edinburgh_sharpened = await Jimp.read("edinburgh_sharpened.jpg");
-  const edinburgh_bw = await Jimp.read("edinburgh_bw.jpg");
-  const edinburgh_pixelized = await Jimp.read("edinburgh_pixelized.jpg");
-  const edinburgh_small = await Jimp.read("edinburgh_small.jpg");
-  const london = await Jimp.read("london.jpg");
-
-  console.log(
-    "Images compared to edinburgh_original.jpg\n========================================="
+  // const edinburgh_original = await Jimp.read("edinburgh_original.jpg");
+  // const edinburgh_sharpened = await Jimp.read("edinburgh_sharpened.jpg");
+  // const edinburgh_bw = await Jimp.read("edinburgh_bw.jpg");
+  // const edinburgh_pixelized = await Jimp.read("edinburgh_pixelized.jpg");
+  // const edinburgh_small = await Jimp.read("edinburgh_small.jpg");
+  // const london = await Jimp.read("london.jpg");
+  const a = await Jimp.read(
+    "https://bku-images.s3.ap-southeast-1.amazonaws.com/20220306_153841~2-02.jpeg"
   );
-  console.log(`hash (base 64) ${edinburgh_original.hash()}`);
+
+  console.log(a.hash());
+
+  // console.log(
+  //   "Images compared to edinburgh_original.jpg\n========================================="
+  // );
+  // console.log(`hash (base 64) ${edinburgh_original.hash()}`);
   //   console.log(`hash (binary)  ${edinburgh_original.hash(2)}\n`);
 
   //   console.log("edinburgh_sharpened.jpg\n=======================");
@@ -63,11 +68,11 @@ async function compare() {
   //     `diff.percent   ${Jimp.diff(edinburgh_original, edinburgh_small).percent}\n`
   //   );
 
-  console.log("london.jpg\n==========");
-  console.log(`hash (base 64) ${london.hash()}`);
-  //   console.log(`hash (binary)  ${london.hash(2)}`);
-  console.log(`distance       ${Jimp.distance(edinburgh_original, london)}`);
-  console.log(`distance       ${edinburgh_original.hash() - london.hash()}`);
+  // console.log("london.jpg\n==========");
+  // console.log(`hash (base 64) ${london.hash()}`);
+  // //   console.log(`hash (binary)  ${london.hash(2)}`);
+  // console.log(`distance       ${Jimp.distance(edinburgh_original, london)}`);
+  // console.log(`distance       ${edinburgh_original.hash() - london.hash()}`);
   //   console.log(
   //     `diff.percent   ${Jimp.diff(edinburgh_original, london).percent}\n`
   //   );
