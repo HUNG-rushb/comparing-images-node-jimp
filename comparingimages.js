@@ -3,17 +3,17 @@ compare();
 async function compare() {
   const Jimp = require("jimp");
 
-  // const edinburgh_original = await Jimp.read("edinburgh_original.jpg");
-  // const edinburgh_sharpened = await Jimp.read("edinburgh_sharpened.jpg");
-  // const edinburgh_bw = await Jimp.read("edinburgh_bw.jpg");
-  // const edinburgh_pixelized = await Jimp.read("edinburgh_pixelized.jpg");
-  // const edinburgh_small = await Jimp.read("edinburgh_small.jpg");
-  // const london = await Jimp.read("london.jpg");
-  const a = await Jimp.read(
-    "https://bku-images.s3.ap-southeast-1.amazonaws.com/20220306_153841~2-02.jpeg"
-  );
+  const edinburgh_original = await Jimp.read("edinburgh_original.jpg");
+  const edinburgh_sharpened = await Jimp.read("edinburgh_sharpened.jpg");
+  const edinburgh_bw = await Jimp.read("edinburgh_bw.jpg");
+  const edinburgh_pixelized = await Jimp.read("edinburgh_pixelized.jpg");
+  const edinburgh_small = await Jimp.read("edinburgh_small.jpg");
+  const london = await Jimp.read("london.jpg");
+  // const a = await Jimp.read(
+  //   "https://bku-images.s3.ap-southeast-1.amazonaws.com/20220306_153841~2-02.jpeg"
+  // );
 
-  console.log(a.hash());
+  // console.log(a.hash());
 
   // console.log(
   //   "Images compared to edinburgh_original.jpg\n========================================="
@@ -28,11 +28,25 @@ async function compare() {
   //     `distance       ${Jimp.distance(edinburgh_original, edinburgh_sharpened)}`
   //   );
 
-  //   console.log(
-  //     `diff.percent   ${
-  //       Jimp.diff(edinburgh_original, edinburgh_sharpened).percent
-  //     }\n`
-  //   );
+  console.log(
+    `diff.percent   ${
+      Jimp.diff(edinburgh_original, edinburgh_sharpened).percent
+    }\n`
+  );
+  console.log(
+    `diff.percent   ${
+      Jimp.diff(edinburgh_original, edinburgh_pixelized).percent
+    }\n`
+  );
+  console.log(
+    `diff.percent   ${Jimp.diff(edinburgh_original, edinburgh_bw).percent}\n`
+  );
+  console.log(
+    `diff.percent   ${Jimp.diff(edinburgh_original, edinburgh_small).percent}\n`
+  );
+  console.log(
+    `diff.percent   ${Jimp.diff(edinburgh_original, london).percent}\n`
+  );
 
   //   console.log(Jimp.diff(edinburgh_original, edinburgh_sharpened));
 
@@ -52,11 +66,11 @@ async function compare() {
   //   console.log(
   //     `distance       ${Jimp.distance(edinburgh_original, edinburgh_pixelized)}`
   //   );
-  //   console.log(
-  //     `diff.percent   ${
-  //       Jimp.diff(edinburgh_original, edinburgh_pixelized).percent
-  //     }\n`
-  //   );
+  // console.log(
+  //   `diff.percent   ${
+  //     Jimp.diff(edinburgh_original, edinburgh_pixelized).percent
+  //   }\n`
+  // );
 
   //   console.log("edinburgh_small.jpg\n===================");
   //   console.log(`hash (base 64) ${edinburgh_small.hash()}`);
